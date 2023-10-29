@@ -1,0 +1,5 @@
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+[user]
+	name = mark-a-austin
+	email = s2038222@ed.ac.uk
