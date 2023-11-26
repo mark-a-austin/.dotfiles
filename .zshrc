@@ -96,6 +96,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   poetry
+  autoenv
   )
 
 source $ZSH/oh-my-zsh.sh
@@ -145,6 +146,29 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+#autoenv
+export AUTOENV_ENV_FILENAME=".autoenv"
+export AUTOENV_ENV_LEAVE_FILENAME=".autoenvleave"
+export AUTOENV_ENABLE_LEAVE="y"
+
+
+autoenv_conda() {
+	echo "conda activate $1" >> .autoenv
+	echo "conda deactivate" >> .autoenvleave
+	echo "Added conda env $1 to .autoenv"
+}
+
+
 #starship init
 eval "$(starship init zsh)"
 alias config='/usr/bin/git --git-dir=/home/markus/.dotfiles/ --work-tree=/home/markus'
+source /home/markus/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export GEM_HOME=~/.ruby/
+export PATH="$PATH:~/.ruby/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/markus/google-cloud-sdk/path.zsh.inc' ]; then . '/home/markus/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/markus/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/markus/google-cloud-sdk/completion.zsh.inc'; fi

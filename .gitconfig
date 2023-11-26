@@ -3,3 +3,6 @@
 [user]
 	name = mark-a-austin
 	email = s2038222@ed.ac.uk
+
+[core]
+	excludesfile = /home/markus/.gitignore
